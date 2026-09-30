@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keith Martin M. Saique | Portfolio</title>
+  <meta name="description" content="Portfolio of Keith Martin M. Saique — web developer with skills in HTML, CSS, JavaScript, Vue.js, Tailwind CSS, and PHP, plus basic computer hardware knowledge.">
+  <meta name="author" content="Keith Martin M. Saique">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Keith Martin M. Saique | Portfolio">
+  <meta property="og:description" content="Web developer with skills in HTML, CSS, JavaScript, Vue.js, Tailwind CSS, and PHP, plus basic computer hardware knowledge.">
+  <!-- Share/preview metadata. og:image MUST be an absolute URL: Facebook,
+       WhatsApp and X all fetch the card from a server that has no page
+       context, so a relative "pictures/og-image.jpg" is silently dropped and
+       the link renders as a bare text card. og:url and canonical need the
+       real origin for the same reason. If the Netlify site is ever renamed,
+       all three have to change together. -->
+  <meta property="og:url" content="https://phenomenal-puppy-0e0e51.netlify.app/">
+  <meta property="og:site_name" content="Keith Martin M. Saique | Portfolio">
+  <meta property="og:image" content="https://phenomenal-puppy-0e0e51.netlify.app/pictures/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://phenomenal-puppy-0e0e51.netlify.app/pictures/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Keith Martin M. Saique, Web Developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Keith Martin M. Saique | Portfolio">
+  <meta name="twitter:description" content="Web developer with skills in HTML, CSS, JavaScript, Vue.js, Tailwind CSS, and PHP.">
+  <meta name="twitter:image" content="https://phenomenal-puppy-0e0e51.netlify.app/pictures/og-image.jpg">
+  <link rel="canonical" href="https://phenomenal-puppy-0e0e51.netlify.app/">
+  <link rel="icon" type="image/png" sizes="32x32" href="pictures/favicon-32.png">
+  <link rel="apple-touch-icon" href="pictures/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- The ?v= values are cache-busters: bump them whenever you edit a file,
+       otherwise the browser keeps serving the old copy and changes look
+       like they "did not work". -->
+  <link rel="stylesheet" href="style.css?v=46">
+  <link rel="stylesheet" href="animations.css?v=16">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo" aria-label="Keith Martin M. Saique — home">
+        <img src="pictures/logo.png" alt="" width="96" height="89" decoding="async">
+      </a>
+      <nav id="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </header>
+
+  <!-- The nav, the footer and the dialogs are landmarks in their own right, so
+       only the page content goes inside <main>. That gives screen-reader and
+       voice-control users a single "main" region to jump to. -->
+  <main>
+  <section id="home" class="hero">
+    <div class="photo has-photo" id="photoCard" tabindex="0" aria-label="Photo of Keith Martin Saique">
+      <span class="mono" aria-hidden="true">KMS</span>
+      <img src="pictures/profile.jpg" alt="Keith Martin M. Saique" width="3024" height="4032">
+      <span class="photo-ring" aria-hidden="true"></span>
+    </div>
+    <div class="intro">
+      <p class="eyebrow">Web Developer</p>
+      <h1>Hi, I'm <span>Keith Martin M. Saique.</span></h1>
+      <div class="hero-actions">
+        <a href="#projects" class="btn">View my work</a>
+        <a href="#contact" class="btn ghost">Let's connect</a>
+        <button class="btn ghost resume-btn" type="button" id="resumeBtn" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 1 3 3v6h1a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3h1V5a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v7h2V5a1 1 0 0 0-1-1Zm-4 9a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H8Z"/></svg>
+          View Resume
+        </a>
+      </div>
+    </div>
+    <a href="#skills" class="scroll-cue" aria-label="Scroll to skills">&#8595;</a>
+  </section>
+
+  <section id="about" class="section light">
+    <div class="section-heading">
+      <p class="label"><span class="head-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4.2 0-7.5 1.9-7.5 4.3V20h15v-1.7C19.5 15.9 16.2 14 12 14Z"/></svg></span>About</p>
+      <h2>A web developer with a hands-on hardware background.</h2>
+    </div>
+    <div class="about-panel">
+      <div class="about-inner">
+      <div class="about-lead">
+        <h3>Who I am</h3>
+        <p>I'm a web developer from Dasmarinas, Cavite, currently studying at NCST. I build responsive, easy-to-use websites with HTML, CSS, and JavaScript. I also have basic knowledge of computer hardware, which helps me understand how software runs on a real machine.</p>
+        <!-- Every chip here is a technology he has already used on a project
+             listed further down the page: Python and SQL on the comic shop
+             system, Vue.js / Tailwind / PHP on Sunrise, Figma on the designs.
+             Nothing invented, and nothing that duplicates the Skills bars. -->
+        <div class="toolbox">
+          <h4>Built with</h4>
+          <ul class="tool-chips">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Vue.js</li>
+            <li>Tailwind CSS</li>
+            <li>PHP</li>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+      </div>
+      <ol class="about-notes">
+        <li>
+          <span class="note-num" aria-hidden="true">01</span>
+          <div class="note-body">
+            <h3>What I do</h3>
+            <p>I design and build websites from layout to interaction, paying attention to clean UI and smooth user experience. I also assemble and troubleshoot computer hardware, which taught me to debug patiently and think logically.</p>
+          </div>
+        </li>
+        <li>
+          <span class="note-num" aria-hidden="true">02</span>
+          <div class="note-body">
+            <h3>Currently learning</h3>
+            <p>JavaScript, Vue.js, Tailwind CSS, and PHP, so I can build full-stack projects that connect to real databases instead of stopping at static pages.</p>
+          </div>
+        </li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section light">
+    <div class="section-heading">
+      <p class="label"><span class="head-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8.6 6.4-5.2 5.2a1 1 0 0 0 0 1.5l5.2 5.2 1.5-1.5-4.5-4.5 4.5-4.5-1.5-1.4Zm6.8 0-1.5 1.4 4.5 4.5-4.5 4.5 1.5 1.5 5.2-5.2a1 1 0 0 0 0-1.5l-5.2-5.2Z"/></svg></span>Skills</p>
+      <h2>Tools and technologies I use.</h2>
+    </div>
+    <div class="skill-panel">
+      <div class="skill-group">
+        <h3 class="group-label">Web Design</h3>
+        <div class="group-rows">
+          <div class="skill-row">
+            <div class="skill"><span>HTML</span><b>75%</b></div>
+            <div class="bar"><i data-w="75"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>CSS</span><b>75%</b></div>
+            <div class="bar"><i data-w="75"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>UI Design</span><b>80%</b></div>
+            <div class="bar"><i data-w="80"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>Responsive Design</span><b>78%</b></div>
+            <div class="bar"><i data-w="78"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="group-label">Programming</h3>
+        <div class="group-rows">
+          <div class="skill-row">
+            <div class="skill"><span>JavaScript</span><b>70%</b></div>
+            <div class="bar"><i data-w="70"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>Vue.js</span><b>60%</b></div>
+            <div class="bar"><i data-w="60"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>HTML &amp; CSS</span><b>75%</b></div>
+            <div class="bar"><i data-w="75"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>Problem Solving</span><b>80%</b></div>
+            <div class="bar"><i data-w="80"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="group-label">Hardware Basics</h3>
+        <div class="group-rows">
+          <div class="skill-row">
+            <div class="skill"><span>PC Assembly</span><b>50%</b></div>
+            <div class="bar"><i data-w="50"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>Disassembly &amp; Troubleshooting</span><b>45%</b></div>
+            <div class="bar"><i data-w="45"></i></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill"><span>Hardware Maintenance</span><b>45%</b></div>
+            <div class="bar"><i data-w="45"></i></div>
+          </div>
+          <p class="cert">Basic knowledge in hardware</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section dark">
+    <div class="section-heading">
+      <p class="label light-label"><span class="head-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 4A2.5 2.5 0 0 0 7 6.5V8H5.5A2.5 2.5 0 0 0 3 10.5v7A2.5 2.5 0 0 0 5.5 20h13a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 18.5 8H17V6.5A2.5 2.5 0 0 0 14.5 4h-5ZM9 6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5V8H9V6.5ZM5 10.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7Z"/></svg></span>Experience</p>
+      <h2>My learning journey and hands-on projects.</h2>
+    </div>
+    <div class="timeline">
+      <article class="exp-item">
+        <div class="year">2024</div>
+        <div class="exp-content">
+          <h3>Student Developer</h3>
+          <p>Started building simple websites and learning the fundamentals of front-end development and UI structure.</p>
+        </div>
+      </article>
+      <article class="exp-item">
+        <div class="year">2025</div>
+        <div class="exp-content">
+          <h3>Project Practice</h3>
+          <p>Created small functional projects including dashboards, portfolio pages, and interactive webpages for learning and experimentation.</p>
+        </div>
+      </article>
+      <article class="exp-item">
+        <div class="year">Current</div>
+        <div class="exp-content">
+          <h3>Continuous Learning</h3>
+          <p>Improving my JavaScript, design, and problem-solving skills while creating personal work that reflects my growth.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects" class="section dark">
+    <div class="section-heading">
+      <p class="label light-label"><span class="head-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h4A1.5 1.5 0 0 1 11 5.5v4A1.5 1.5 0 0 1 9.5 11h-4A1.5 1.5 0 0 1 4 9.5v-4Zm9 0A1.5 1.5 0 0 1 14.5 4h4A1.5 1.5 0 0 1 20 5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4A1.5 1.5 0 0 1 13 9.5v-4ZM4 14.5A1.5 1.5 0 0 1 5.5 13h4a1.5 1.5 0 0 1 1.5 1.5v4A1.5 1.5 0 0 1 9.5 20h-4A1.5 1.5 0 0 1 4 18.5v-4Zm9 0a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a1.5 1.5 0 0 1-1.5-1.5v-4Z"/></svg></span>Projects</p>
+      <h2>Some of the work I have built.</h2>
+    </div>
+
+    <div class="project-group">
+      <div class="group-heading">
+        <h3 class="group-title">Systems</h3>
+        <p class="group-sub">Working applications built with real code, logic, and a database.</p>
+      </div>
+      <div class="projects">
+        <article class="project" data-project="comic" data-url="comic-shop-system">
+          <div class="project-shot">
+            <img src="pictures/comic-book-system.jpg" alt="Comic Book Management System dashboard showing sales, comics, and stock charts" loading="lazy">
+            <span class="shot-hint">View</span>
+            <span class="shot-badge">Python &middot; SQL</span>
+          </div>
+          <div class="project-body">
+            <h3>Comic Book Management System</h3>
+            <p>A desktop-style management system for a comic shop, covering sales, inventory, borrowing, and user accounts.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Dashboard</li>
+            </ul>
+            <div class="project-actions">
+              <button class="more">View details</button>
+            </div>
+            <div class="details">
+              <p>A full management system built to track a comic shop's daily operations. The dashboard surfaces key numbers at a glance — total sales, comics in stock, items currently borrowed, and low-stock alerts — alongside charts for recent sales and top-selling titles.</p>
+              <p>Beyond the dashboard, the system handles comic inventory, point-of-sale transactions, borrow and return records, sales history, reports, and user accounts. Built with Python and SQL to keep the data organised and every record queryable.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" data-project="vegan" data-url="veganbrew-coffee">
+          <div class="project-shot">
+            <img src="pictures/vegan-brew.jpg" alt="VeganBrew Coffee coffee shop website landing page" loading="lazy">
+            <span class="shot-hint">View</span>
+            <span class="shot-badge">PHP &middot; JavaScript</span>
+          </div>
+          <div class="project-body">
+            <h3>VeganBrew Coffee</h3>
+            <p>A landing page for a plant-based coffee brand, built around strong imagery and clear calls to action.</p>
+            <ul class="tags">
+              <li>PHP</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="project-actions">
+              <button class="more">View details</button>
+            </div>
+            <div class="details">
+              <p>A responsive website for a vegan coffee brand. The design leads with a full-bleed hero image and a bold headline, then guides visitors toward the menu, the brand story, and the contact page.</p>
+              <p>Built with PHP on the server side for the menu and contact handling, paired with HTML, CSS, and JavaScript on the front end. The layout adapts across screen sizes, and the navigation includes working links to Home, About, Menu, and Contact alongside login and registration entry points.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" data-project="sunrise" data-url="sunrise-enrollment">
+          <div class="project-shot">
+            <img src="pictures/sunrise-enrollment.jpg" alt="Sunrise Senior High School website with an open enrollment banner" loading="lazy">
+            <span class="shot-hint">View</span>
+            <span class="shot-badge">Vue.js &middot; PHP</span>
+          </div>
+          <div class="project-body">
+            <h3>Sunrise Enrollment System</h3>
+            <p>A school website with an open-enrollment flow, strand information, and a notice banner for applicants.</p>
+            <ul class="tags">
+              <li>Vue.js</li>
+              <li>Tailwind CSS</li>
+              <li>PHP</li>
+            </ul>
+            <div class="project-actions">
+              <button class="more">View details</button>
+            </div>
+            <div class="details">
+              <p>A website for Sunrise Senior High School built around its enrollment period. A notice banner announces that SY 2026-2027 enrollment is open for Grade 11 and Grade 12, and reminds early applicants they get priority on strand slots.</p>
+              <p>Built with Vue.js for reactive components, Tailwind CSS for the styling, and PHP to handle enrollment submissions on the server. The site covers the school's four academic and TVL strands, the application procedure, announcements, and requirements, with clear calls to action for starting enrollment or comparing strands.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <div class="group-heading">
+        <h3 class="group-title">Web Design</h3>
+        <p class="group-sub">Interface and layout designs made in Figma as web design examples.</p>
+      </div>
+
+      <!--
+        To add a Figma design, copy one of these blocks and fill it in.
+        Drop the screenshot in the pictures folder, then paste your Figma
+        share link in the href below.
+
+        <article class="project" data-project="your-design">
+          <div class="project-shot">
+            <img src="pictures/your-design.jpg" alt="Short description of the design" loading="lazy">
+            <span class="shot-hint">View</span>
+          </div>
+          <div class="project-body">
+            <h3>Design name</h3>
+            <p>One line about what the design is for.</p>
+            <ul class="tags">
+              <li>Figma</li>
+            </ul>
+            <div class="project-actions">
+              <a class="figma-link" href="https://www.figma.com/design/..." target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 2h3.5v7H8.5a3.5 3.5 0 1 1 0-7Zm3.5 0H15.5a3.5 3.5 0 1 1 0 7H12V2Zm3.5 7.5H15.5a3.5 3.5 0 1 1 0 7H15.5v-7ZM12 9.5h3.5a3.5 3.5 0 1 1 0 7H12V9.5ZM8.5 16.5H12V20H8.5a3.5 3.5 0 1 1 0-3.5Z"/></svg>
+                Open in Figma
+              </a>
+            </div>
+          </div>
+        </article>
+      -->
+
+      <div class="projects">
+        <article class="project project--figma" data-project="byte-and-bite" data-url="byte-and-bite">
+          <div class="project-shot">
+            <img src="pictures/byte-and-bite.jpg" alt="Byte and Bite food delivery website with a burger hero image" loading="lazy">
+            <span class="shot-hint">View</span>
+            <span class="shot-badge">Figma Design</span>
+          </div>
+          <div class="project-body">
+            <h3>Byte &amp; Bite</h3>
+            <p>A food delivery landing page built around a bold hero, with menu, about, and contact pages plus delivery stats up front.</p>
+            <ul class="tags">
+              <li>Figma</li>
+              <li>Web Design</li>
+              <li>UI Layout</li>
+            </ul>
+            <div class="project-actions">
+              <a class="figma-link" href="https://www.figma.com/design/apdjuExqic1X7XwbAIZIzD/LAB-2-HCI?node-id=0-1&amp;t=uqeM8Xh0dgQMVTDs-1" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 2h3.5v7H8.5a3.5 3.5 0 1 1 0-7Zm3.5 0H15.5a3.5 3.5 0 1 1 0 7H12V2Zm3.5 7.5H15.5a3.5 3.5 0 1 1 0 7H15.5v-7ZM12 9.5h3.5a3.5 3.5 0 1 1 0 7H12V9.5ZM8.5 16.5H12V20H8.5a3.5 3.5 0 1 1 0-3.5Z"/></svg>
+                Open in Figma
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project--figma" data-project="fushigu-kai" data-url="fushigu-kai">
+          <div class="project-shot">
+            <img src="pictures/fushigu-kai.jpg" alt="FushiguKai manga reading site with a featured title, ranking list, and latest updates" loading="lazy">
+            <span class="shot-hint">View</span>
+            <span class="shot-badge">Figma Design</span>
+          </div>
+          <div class="project-body">
+            <h3>FushiguKai</h3>
+            <p>A manga reading platform layout with search, genre filters, a featured title, a live ranking list, and a latest-updates row.</p>
+            <ul class="tags">
+              <li>Figma</li>
+              <li>Web Design</li>
+              <li>UI Layout</li>
+            </ul>
+            <div class="project-actions">
+              <a class="figma-link" href="https://www.figma.com/design/Ibo5jSZcsFY0dTDfM0pUNy/HCI-LAB-EXAM?node-id=0-1&amp;t=WMGz2a09bpAgCt9M-1" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 2h3.5v7H8.5a3.5 3.5 0 1 1 0-7Zm3.5 0H15.5a3.5 3.5 0 1 1 0 7H12V2Zm3.5 7.5H15.5a3.5 3.5 0 1 1 0 7H15.5v-7ZM12 9.5h3.5a3.5 3.5 0 1 1 0 7H12V9.5ZM8.5 16.5H12V20H8.5a3.5 3.5 0 1 1 0-3.5Z"/></svg>
+                Open in Figma
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project--figma" data-project="cinema-bai" data-url="cinema-bai">
+          <div class="project-shot">
+            <img src="pictures/cinema-bai.jpg" alt="CinemaBai movie booking site with now showing, coming soon, and top rated rows" loading="lazy">
+            <span class="shot-hint">View</span>
+            <span class="shot-badge">Figma Design</span>
+          </div>
+          <div class="project-body">
+            <h3>CinemaBai</h3>
+            <p>A cinema booking layout with a seat-booking hero, now-showing and coming-soon rows, top-rated picks, and sign-in.</p>
+            <ul class="tags">
+              <li>Figma</li>
+              <li>Web Design</li>
+              <li>UI Layout</li>
+            </ul>
+            <div class="project-actions">
+              <a class="figma-link" href="https://www.figma.com/design/Zajy7oWQKOGvbyf4DckZsf/CinemaBai?node-id=0-1&amp;t=BfAf3fALfQl97GND-" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 2h3.5v7H8.5a3.5 3.5 0 1 1 0-7Zm3.5 0H15.5a3.5 3.5 0 1 1 0 7H12V2Zm3.5 7.5H15.5a3.5 3.5 0 1 1 0 7H15.5v-7ZM12 9.5h3.5a3.5 3.5 0 1 1 0 7H12V9.5ZM8.5 16.5H12V20H8.5a3.5 3.5 0 1 1 0-3.5Z"/></svg>
+                Open in Figma
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section light">
+    <div class="section-heading">
+      <p class="label"><span class="head-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 6.5A2.5 2.5 0 0 1 6 4h12a2.5 2.5 0 0 1 2.5 2.5v11A2.5 2.5 0 0 1 18 20H6a2.5 2.5 0 0 1-2.5-2.5v-11ZM5.8 7.4 12 12.1l6.2-4.7V6.5a.5.5 0 0 0-.5-.5H6.3a.5.5 0 0 0-.5.5v.9Z"/></svg></span>Contact</p>
+      <h2>Let's connect and build something meaningful together.</h2>
+    </div>
+    <div class="contacts">
+      <a class="contact-card" id="emailCard" href="mailto:kitsaique@gmail.com">
+        <span class="contact-icon" aria-hidden="true">
+          <img class="contact-logo" src="pictures/gmail-icon.png" alt="" width="80" height="60" loading="lazy" decoding="async">
+        </span>
+        <span class="contact-text">
+          <b>Email</b>
+          <span class="email-value" data-email="kitsaique@gmail.com">kitsaique@gmail.com</span>
+        </span>
+        <span class="contact-go" aria-hidden="true">&#8250;</span>
+      </a>
+
+      <a class="contact-card" href="https://www.facebook.com/Saique17" target="_blank" rel="noopener noreferrer" data-contact="facebook">
+        <span class="contact-icon" aria-hidden="true">
+          <img src="pictures/facebook-icon.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        </span>
+        <span class="contact-text">
+          <b>Facebook</b>
+          <span>Keith Martin Saique</span>
+        </span>
+        <span class="contact-go" aria-hidden="true">&#8250;</span>
+      </a>
+
+      <a class="contact-card" href="https://github.com/cuervokeith-1111" target="_blank" rel="noopener noreferrer" data-contact="github">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </span>
+        <span class="contact-text">
+          <b>GitHub</b>
+          <span>@cuervokeith-1111</span>
+        </span>
+        <span class="contact-go" aria-hidden="true">&#8250;</span>
+      </a>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <!-- role="timer" is the ARIA role for a periodically-updating clock. Its
+         implicit live region is "off", so a screen reader reads it on demand
+         instead of announcing every tick. -->
+    <p class="foot-clock">
+      <time id="liveClock" role="timer" datetime="">Loading date and time&hellip;</time>
+    </p>
+    <p class="foot-copy">&copy; <span id="footYear">2026</span> Keith Martin M. Saique. Thank you for visiting!</p>
+  </footer>
+
+  <!-- RESUME MODAL -->
+  <div class="resume-modal" id="resumeModal" aria-hidden="true">
+    <div class="resume-dialog" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+      <header class="resume-head">
+        <div class="resume-head-text">
+          <h2 id="resumeTitle">My Resume</h2>
+          <p>Keith Martin M. Saique — Web Developer</p>
+        </div>
+        <a class="resume-dl" href="pictures/keith-martin-saique-resume.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l2.3 2.3V4a1 1 0 0 1 1-1ZM4 17a1 1 0 0 1 1 1v1h14v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+          Download
+        </a>
+        <button class="resume-close" id="resumeClose" type="button" aria-label="Close resume">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 5A1 1 0 0 0 5 6.3L10.6 12 5 17.7A1 1 0 1 0 6.3 19L12 13.4 17.7 19a1 1 0 0 0 1.4-1.4L13.4 12 19 6.3A1 1 0 0 0 17.7 5L12 10.6 6.3 5Z"/></svg>
+        </button>
+      </header>
+
+      <div class="resume-body">
+        <iframe id="resumeFrame" src="pictures/keith-martin-saique-resume.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" title="Keith Martin M. Saique — Resume"></iframe>
+        <!-- Shown instead of the iframe when the page is opened from the file
+             system: browsers treat every file:// as its own security origin,
+             so embedding the PDF is refused and the frame would stay blank. -->
+        <div class="resume-fallback" id="resumeFallback" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a1 1 0 0 1 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l2.3 2.3V3a1 1 0 0 1 1-1ZM4 17a1 1 0 0 1 1 1v1h14v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+          <p>Your browser will not display the PDF inside the page when the site is opened straight from the folder.</p>
+          <a class="resume-open" href="pictures/keith-martin-saique-resume.pdf" target="_blank" rel="noopener">Open the resume in a new tab</a>
+        </div>
+      </div>
+
+      <footer class="resume-foot">
+        <p>Press <kbd>Esc</kbd> or click outside to close.</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- PROJECT MODAL — opened from any project card or its "View details" -->
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="project-dialog" role="dialog" aria-modal="true" aria-labelledby="pmTitle" aria-describedby="pmLead">
+      <div class="pm-frame">
+        <div class="pm-chrome" aria-hidden="true">
+          <span class="pm-dot"></span>
+          <span class="pm-dot"></span>
+          <span class="pm-dot"></span>
+          <span class="pm-url" id="pmUrl"></span>
+        </div>
+        <button class="pm-shot" id="pmShot" type="button">
+          <img id="pmImg" src="" alt="">
+          <span class="pm-zoom" aria-hidden="true">Click to enlarge</span>
+        </button>
+        <button class="pm-close" id="pmClose" type="button" aria-label="Close project">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 5A1 1 0 0 0 5 6.3L10.6 12 5 17.7A1 1 0 1 0 6.3 19L12 13.4 17.7 19a1 1 0 0 0 1.4-1.4L13.4 12 19 6.3A1 1 0 0 0 17.7 5L12 10.6 6.3 5Z"/></svg>
+        </button>
+      </div>
+
+      <div class="pm-body">
+        <h3 id="pmTitle"></h3>
+        <p class="pm-lead" id="pmLead"></p>
+
+        <div class="pm-tags" id="pmTags"></div>
+
+        <div class="pm-block" id="pmAboutBlock">
+          <h4>About this project</h4>
+          <div id="pmAbout"></div>
+        </div>
+      </div>
+
+      <footer class="pm-foot">
+        <a class="pm-primary" id="pmLink" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <button class="pm-secondary" id="pmCloseFoot" type="button">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat" id="chat" data-open="false">
+    <div class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-labelledby="chatName" hidden>
+      <header class="chat-head">
+        <span class="chat-avatar" aria-hidden="true">KM</span>
+        <span class="chat-id">
+          <b id="chatName">Keith Martin Saique</b>
+          <small><i></i>Online</small>
+        </span>
+        <button class="chat-min" id="chatMin" type="button" aria-label="Minimise chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h14v2H5z"/></svg>
+        </button>
+      </header>
+
+      <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-atomic="false"></div>
+
+      <div class="chat-ask">
+        <p class="chat-ask-label">Ask me</p>
+        <div class="chat-chips" id="chatChips">
+          <button type="button" data-q="who">Who are you?</button>
+          <button type="button" data-q="skills">My Skills</button>
+          <button type="button" data-q="stack">Tech Stack</button>
+          <button type="button" data-q="experience">Experience</button>
+          <button type="button" data-q="projects">My Projects</button>
+          <button type="button" data-q="contact">Contact Me</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- aria-label is required, not decorative: both icons inside are
+         aria-hidden, so without it this announces as a bare "button". The
+         opening wording also carries the unread count that the badge shows,
+         so the visible "1" is not left as text the accessible name ignores
+         (WCAG 2.5.3). script.js rewrites the label as the state changes. -->
+    <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open chat — 1 new message" aria-expanded="false" aria-controls="chatPanel">
+      <svg class="chat-ico-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.4-1.3A9 9 0 1 0 12 3Zm0 2a7 7 0 1 1-3.5 13.1 1 1 0 0 0-.5-.1l-1.8.5.5-1.8a1 1 0 0 0-.1-.5A7 7 0 0 1 12 5Z"/></svg>
+      <svg class="chat-ico-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 5A1 1 0 0 0 5 6.3L10.6 12 5 17.7A1 1 0 1 0 6.3 19L12 13.4 17.7 19a1 1 0 0 0 1.4-1.4L13.4 12 19 6.3A1 1 0 0 0 17.7 5L12 10.6 6.3 5Z"/></svg>
+      <span class="chat-badge" id="chatBadge" aria-hidden="true">1</span>
+    </button>
+  </div>
+
+  <button id="topBtn" aria-label="Back to top">↑</button>
+  <script src="script.js?v=30"></script>
+  <script src="animations.js?v=19"></script>
+</body>
+</html>

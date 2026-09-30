@@ -1,0 +1,27 @@
+# Netlify headers — https://docs.netlify.com/routing/headers/
+#
+# Note on the split below: the CSS and JS are cached for a year because they
+# carry a ?v= cache-buster in index.html, which makes every edit a brand-new
+# URL. The images are deliberately NOT given the same treatment — they have no
+# version query, so if you ever swap profile.jpg for a new photo the URL is
+# identical and a one-year cache would keep serving the old one for a year.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+
+# The HTML is the only file that must never be stale: it is what points at
+# the current ?v= values, so a cached copy would pin the site to old assets.
+# no-cache still allows a 304 (a few bytes) when nothing changed.
+/index.html
+  Cache-Control: no-cache
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/pictures/*
+  Cache-Control: public, max-age=604800

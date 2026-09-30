@@ -1,0 +1,331 @@
+/* ==========================================================================
+   animations.css — self-contained animation layer
+   --------------------------------------------------------------------------
+   Loaded AFTER style.css so nothing here changes the existing layout. Every
+   rule below either animates a new element type or only overrides a property
+   that style.css does not use (e.g. background-position, filter, letter-spacing).
+   No rule here touches `transform` on .photo, .reveal, or .btn, so the tilt,
+   scroll-reveal and ripple effects keep working untouched.
+   ========================================================================== */
+
+/* ---------- 1. TYPEWRITER EYEBROW ---------------------------------------- */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: 0;
+  border-right: 2px solid var(--blue);
+  animation:
+    tw-type 1.9s steps(30, end) 0.5s forwards,
+    tw-caret 0.75s step-end infinite;
+}
+
+.typewriter.done {
+  border-right-color: transparent;
+  animation: tw-type 1.9s steps(30, end) 0.5s forwards;
+}
+
+@keyframes tw-type {
+  to { width: 100%; }
+}
+
+@keyframes tw-caret {
+  50% { border-right-color: transparent; }
+}
+
+/* ---------- 1b. CARET FOR THE HERO NAME -------------------------------- */
+/* Rendered as ::after on the name span: the span is a block, but its contents
+   are inline, so this lands right after the final character — including when
+   the name wraps onto a second line. */
+.intro h1 span.tw-caret::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 0.82em;
+  margin-left: 5px;
+  vertical-align: -0.06em;
+  background: var(--blue);
+  animation: tw-blink 0.8s step-end infinite;
+}
+
+@keyframes tw-blink {
+  50% { opacity: 0; }
+}
+
+/* ---------- 2. GRADIENT TEXT --------------------------------------------- */
+.gradient-text {
+  background: linear-gradient(90deg, var(--blue), #6ea8ff 45%, var(--blue-deep) 80%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-pan 7s ease-in-out infinite;
+}
+
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* The name in the hero gets the same travelling gradient. Wrapped in
+   @supports because the trick relies on `color: transparent` — if a browser
+   could not clip the background to the glyphs the name would be invisible. */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .intro h1 span {
+    background-image: linear-gradient(90deg, var(--blue), #6ea8ff 45%, var(--blue-deep) 80%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-pan 7s ease-in-out infinite;
+  }
+}
+
+/* ---------- 3. FLOATING SHAPES (hero decoration) ------------------------- */
+.hero-decor {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  /* keep them from competing with the text */
+  opacity: 0.85;
+}
+
+.hero-decor--a {
+  width: 130px;
+  height: 130px;
+  top: 14%;
+  left: 5%;
+  background: radial-gradient(circle, rgba(46, 111, 232, 0.22), transparent 70%);
+  animation: float-a 13s ease-in-out infinite;
+}
+
+.hero-decor--b {
+  width: 100px;
+  height: 100px;
+  bottom: 22%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(110, 168, 255, 0.24), transparent 70%);
+  animation: float-b 11s ease-in-out infinite;
+}
+
+.hero-decor--c {
+  width: 70px;
+  height: 70px;
+  bottom: 12%;
+  left: 42%;
+  background: radial-gradient(circle, rgba(46, 111, 232, 0.18), transparent 70%);
+  animation: float-c 15s ease-in-out infinite;
+}
+
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(22px, -28px); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-26px, 20px); }
+}
+
+@keyframes float-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(16px, 24px) scale(1.14); }
+}
+
+/* ---------- 4. NAV PROGRESS BAR ------------------------------------------ */
+.nav-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--blue), #6ea8ff);
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* ---------- 5. SKELETON SHIMMER (loading images) ------------------------- */
+.project-shot.is-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  animation: shimmer 1.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  from { background-position: 140% 0; }
+  to   { background-position: -40% 0; }
+}
+
+/* ---------- 6. TILT ON HOVER (cards that have no 3D tilt yet) ------------ */
+/* .photo already has its own tilt, so this deliberately skips it. The skill
+   groups are absent on purpose — they are one continuous panel and are meant
+   to stay calm. The about panel was in this list and was removed: its tilt
+   read as disorienting on hover, since a panel that wide swings a long way
+   for only a few degrees. It keeps a plain border-and-shadow hover now.
+   Note: transitions for these elements are already defined in style.css —
+   do not redeclare them here or the reduced-motion override will be shadowed. */
+.contact-card[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-card[data-tilt]:hover {
+    box-shadow: 0 30px 60px rgba(46, 111, 232, 0.16);
+  }
+}
+
+/* ---------- 6b. TAP STANDS IN FOR HOVER (touch screens) ------------------ */
+/* Every hover effect above is unreachable on a phone, because a finger has
+   no hover state — which left the whole site inert on mobile. These mirror
+   the pointer versions on :active, so pressing a card gives the same
+   feedback. The press scales *down* rather than lifting, since a tap pushes
+   the surface away instead of the cursor moving over it. */
+
+@media (hover: none) {
+  .contact-card:active {
+    transform: scale(0.975);
+    border-color: var(--blue);
+    box-shadow: 0 22px 44px rgba(46, 111, 232, 0.13);
+  }
+
+  /* the sheen has no cursor to follow, so it lights up centred on the tap */
+  .contact-card:active::after {
+    opacity: 1;
+  }
+
+  .photo:active {
+    border-color: var(--blue);
+    box-shadow: 20px 20px 0 var(--photo-border), 0 22px 42px rgba(46, 111, 232, 0.2);
+  }
+
+  .photo:active::after {
+    opacity: 1;
+  }
+
+  .photo:active .photo-ring {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  .photo:active img {
+    transform: scale(1.05);
+    filter: brightness(1.04);
+  }
+
+  /* the about panel only gets a border tint on press — it has no tilt and no
+     sheen, and stays still so it reads as plain text on a phone */
+  .about-panel:active {
+    border-color: var(--blue);
+  }
+}
+
+/* ---------- 7. UNDERLINE SWEEP (section headings) ------------------------ */
+/* A short centred rule that grows in. Sized to the first line only so it
+   never stretches across a wrapped heading. */
+.section-heading h2 {
+  position: relative;
+}
+
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  height: 3px;
+  width: 0;
+  max-width: 180px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--blue), #6ea8ff);
+  transform: translateX(-50%);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-heading h2.sweep::after {
+  width: 120px;
+}
+
+/* ---------- 8. PARALLAX ON SCROLL (gentle, opt-in) ----------------------- */
+[data-parallax] {
+  will-change: transform;
+}
+
+/* ---------- 9. PULSE RING ON THE SCROLL CUE ----------------------------- */
+.scroll-cue::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+  opacity: 0;
+  animation: cue-pulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cue-pulse {
+  0%   { opacity: 0.5; transform: scale(1); }
+  70%  { opacity: 0;   transform: scale(1.5); }
+  100% { opacity: 0;   transform: scale(1.5); }
+}
+
+/* ---------- 10. REDUCED MOTION — disable everything here ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="on"]) .typewriter,
+  html:not([data-motion="on"]) .typewriter.done {
+    width: auto;
+    border-right-color: transparent;
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .gradient-text {
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .intro h1 span {
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .intro h1 span.tw-caret::after {
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .hero-decor {
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .project-shot.is-loading::after {
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .scroll-cue::before {
+    animation: none;
+  }
+
+  html:not([data-motion="on"]) .contact-card,
+  html:not([data-motion="on"]) .about-panel,
+  html:not([data-motion="on"]) .tool-chips li,
+  html:not([data-motion="on"]) .skill-row,
+  html:not([data-motion="on"]) .exp-item {
+    transition: none;
+  }
+
+  html:not([data-motion="on"]) .section-heading h2 {
+    transition: none;
+  }
+}
